@@ -1,6 +1,6 @@
 <mat-toolbar color="primary">
   <mat-toolbar-row>
-    <button mat-icon-button>
+    <button mat-icon-button (click)="toggleSidebar()">
       <mat-icon>menu</mat-icon>
     </button>
 
@@ -36,7 +36,7 @@
 
 <mat-drawer-container>
 
-  <mat-drawer [mode]="mode" [opened]="true">
+  <mat-drawer [mode]="mode" [opened]="sidebarOpen">
 
     <mat-nav-list id="card-top">
       <div class="profile-card">
@@ -49,9 +49,46 @@
 
       <mat-divider></mat-divider>
 
+      <h2 matSubheader>Pages</h2>
+
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/dashboard">
+        <mat-icon>dashboard</mat-icon>
+       &nbsp; Dashboard
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/posts">
+        <mat-icon>local_post_office</mat-icon>
+        &nbsp; Posts
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="/articles">
+        <mat-icon>notes</mat-icon>
+       &nbsp; Articles
+      </a>
+
+      <mat-divider></mat-divider>
+
+      <h2 matSubheader>Tools</h2>
+
+      <a mat-list-item routerLinkActive="list-item-active" routerLink="">
+        <mat-icon>import_contacts</mat-icon>
+        &nbsp; Contacts
+      </a>
+      <a mat-list-item routerLinkActive="list-item-active" rouerLink="">
+        <mat-icon>contact_phone</mat-icon>
+        &nbsp; Leads
+      </a>
+
 
     </mat-nav-list>
 
   </mat-drawer>
 
+  <mat-drawer-content>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+
 </mat-drawer-container>
+
+<mat-divider></mat-divider>
+<footer>
+  &copy; All rights reserved 2020
+</footer>

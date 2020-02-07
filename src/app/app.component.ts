@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +6,17 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'dashboard-light';
 
+  sidebarOpen = true;
   mode = 'side';
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
+  }
+
 }
